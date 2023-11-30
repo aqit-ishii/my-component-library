@@ -2,8 +2,9 @@ import { defineConfig } from 'vite'
 import { extname, relative, resolve } from 'path'
 import { fileURLToPath } from 'node:url'
 import { glob } from 'glob'
-import react from '@vitejs/plugin-react'
+import react from '@vitejs/plugin-react-swc'
 import dts from 'vite-plugin-dts'
+import tailwindcss from 'tailwindcss'
 import { libInjectCss } from 'vite-plugin-lib-inject-css'
 
 // https://vitejs.dev/config/
@@ -13,6 +14,11 @@ export default defineConfig({
     libInjectCss(),
     dts({ include: ['lib'] })
   ],
+    css: {
+      postcss: {
+        plugins: [tailwindcss],
+      },
+    },
   build: {
     copyPublicDir: false,
     lib: {
@@ -38,6 +44,12 @@ export default defineConfig({
       output: {
         assetFileNames: 'assets/[name][extname]',
         entryFileNames: '[name].js',
+        globals: {
+            react: 'React',
+            'react/jsx-runtime': 'react/jsx-runtime',
+            'react-dom': 'ReactDOM',
+            tailwindcss: 'tailwindcss',
+          },
       }
     }
   }

@@ -1,0 +1,57 @@
+{
+  "plugins": [
+    "stylelint-prettier",
+    "stylelint-use-nesting",
+    "stylelint-declaration-block-no-ignored-properties",
+    "stylelint-no-unsupported-browser-features"
+  ],
+  "extends": [
+    "stylelint-config-standard",
+    "stylelint-config-recess-order",
+    "stylelint-config-tailwindcss",
+    "stylelint-prettier/recommended",
+    "stylelint-config-prettier"
+  ],
+  "files": ["src/**/*.css"],
+  "ignoreFiles": ["**/node_modules/**"],
+  "rules": {
+    "declaration-block-trailing-semicolon": null,
+    "declaration-block-no-shorthand-property-overrides": true,
+    "selector-pseudo-element-colon-notation": "double",
+    "no-descending-specificity": null,
+    "at-rule-no-unknown": [
+      true,
+      {
+        "ignoreAtRules": [
+          "tailwind",
+          "layer",
+          "apply",
+          "variants",
+          "responsive",
+          "screen"
+        ]
+      }
+    ],
+    "function-no-unknown": [
+      true,
+      {
+        "ignoreFunctions": ["theme", "screen"]
+      }
+    ],
+    "prettier/prettier": true,
+    "order/order": [
+      "custom-properties",
+      "declarations"
+    ],
+    "csstools/use-nesting": "always",
+    "order/properties-order": null,
+    "order/properties-alphabetical-order": null,
+    "plugin/declaration-block-no-ignored-properties": true,
+    "plugin/no-unsupported-browser-features": [
+      true,
+      {
+        "severity": "warning"
+      }
+    ]
+  }
+}
