@@ -1,10 +1,14 @@
 import { useState } from 'react'
+
 import reactLogo from './assets/react.svg'
+
+// eslint-disable-next-line import/no-unresolved
 import viteLogo from '/vite.svg'
+
 import './App.css'
 import { Button, Input, Label } from '../'
 
-function App() {
+const App = () => {
   const [count, setCount] = useState(0)
   const [inputCustomCountValue, setInputCustomCountValue] = useState('')
 
@@ -45,5 +49,6 @@ function App() {
     </>
   )
 }
+App.displayName = 'App'
 
 export default App

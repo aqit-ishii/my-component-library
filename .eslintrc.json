@@ -16,12 +16,14 @@
     "plugin:storybook/recommended",
     "prettier"
   ],
+  "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": "latest",
     "ecmaFeatures": {
       "jsx": true
     },
-    "sourceType": "module"
+    "sourceType": "module",
+    "project": "./tsconfig.eslint.json"
   },
   "plugins": [
     "import",
